@@ -11,9 +11,12 @@ const string corsPolicyName = "StokMateCors";
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Port sabit: 5080. Tüm ağ arayüzleri (0.0.0.0) dinlenir; böylece API'ye hem
-// localhost'tan hem de emülatör/fiziksel cihazdan makinenin yerel IP'si ile erişilebilir.
-builder.WebHost.UseUrls("http://0.0.0.0:5080");
+// Port, ortam değişkeni PORT'tan (Render gibi hosting'lerin enjekte ettiği) alınır;
+// yoksa yerel geliştirme için 5080'e düşer. Tüm ağ arayüzleri (0.0.0.0) dinlenir;
+// böylece API'ye hem localhost'tan hem de emülatör/fiziksel cihazdan makinenin
+// yerel IP'si ile erişilebilir.
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
 // Bellek içi veritabanı: kurulum gerektirmez, uygulama kapanınca veriler silinir.
 builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("StokMate"));
