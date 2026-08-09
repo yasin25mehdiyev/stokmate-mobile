@@ -1,5 +1,7 @@
 # StokMate
 
+📱 **[APK'yı indir](https://expo.dev/artifacts/eas/R-7ell4Wve1eRyshrJhEwOsvm5giZZ2DYnaY4tjAI90.apk)** — kurulum ve test adımları için aşağıdaki [APK ile Test](#apk-ile-test-eas-preview-build) bölümüne bakın. (EAS build artifact linkleri belirli bir süre sonra sona erer; link çalışmazsa haber verin, yeni build alınır.)
+
 Stok yönetimi case study'si. Repo iki bağımsız projeden oluşur:
 
 ```
