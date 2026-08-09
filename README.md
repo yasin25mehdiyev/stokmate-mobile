@@ -32,6 +32,22 @@ tanımlı olmalı — bu dosya `npm start` ilk çalıştığında `.env.example`
 oluşturulur. Detaylar için [`mobile/README.md`](mobile/README.md) dosyasına bakın;
 endpoint referansı için [`server/API.md`](server/API.md).
 
+## APK ile Test (EAS Preview Build)
+
+Paylaşılan `.apk` dosyası (veya EAS build linki) derleme sırasında sabit bir API
+adresi içermez; uygulama açıldığında varsayılan olarak `http://localhost:5080`
+adresine bağlanmayı dener. Fiziksel bir telefonda "localhost" telefonun kendisi
+demek olduğundan, API'yi kendi bilgisayarınızda ayağa kaldırmanız tek başına
+yeterli değildir. APK'yı test etmek için:
+
+1. **API'yi kendi makinenizde çalıştırın** (`server/`, port `5080` — yukarıdaki
+   "Hızlı Başlangıç" adımı).
+2. **Telefon ile bilgisayarın aynı Wi-Fi/LAN ağında** olduğundan emin olun.
+3. Uygulamayı açın, giriş ekranındaki **"Server Settings"** düğmesine dokunun ve
+   bilgisayarınızın LAN IP adresini girin (örn. `http://192.168.1.34:5080`) —
+   bu ekran tam olarak bu senaryo için var
+   (`mobile/src/features/auth/server-settings`).
+
 ## Auth Akışı: Access Token + HttpOnly Refresh Cookie
 
 Mobil uygulama ile API arasındaki oturum yönetimi şu şekilde çalışır:
