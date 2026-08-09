@@ -18,17 +18,17 @@ import { SheetBackdrop } from "@/shared/ui/custom/bottom-sheet";
 
 const URL_PATTERN = /^https?:\/\/.+/;
 
-interface ServerSettingsSheetProps {
+interface ServerSettingsProps {
   onSaved: () => void;
 }
 
-const ServerSettingsSheet = forwardRef<BottomSheetModal, ServerSettingsSheetProps>(
+const ServerSettings = forwardRef<BottomSheetModal, ServerSettingsProps>(
   ({ onSaved }, ref) => {
     const { t } = useTranslation("auth", { keyPrefix: "serverSettings" });
     const insets = useSafeAreaInsets();
 
     const [url, setUrl] = useState(() => getApiBaseUrl());
-    const [error, setError] = useState(false);
+    const [error, setError] = useState<boolean>(false);
 
     const handleSave = () => {
       const trimmed = url.trim();
@@ -100,6 +100,6 @@ const ServerSettingsSheet = forwardRef<BottomSheetModal, ServerSettingsSheetProp
   },
 );
 
-ServerSettingsSheet.displayName = "ServerSettingsSheet";
+ServerSettings.displayName = "ServerSettings";
 
-export { ServerSettingsSheet };
+export { ServerSettings };

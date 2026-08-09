@@ -6,13 +6,14 @@ import { useTranslation } from "react-i18next";
 import { Typography } from "@/shared/ui/core/typography";
 import { SigninForm } from "@/features/auth/signin";
 import {
-  ServerSettingsSheet,
+  ServerSettings,
   ServerSettingsTrigger,
 } from "@/features/auth/server-settings";
 
 export default function SigninScreen() {
   const { t } = useTranslation("auth");
   const insets = useSafeAreaInsets();
+
   const sheetRef = useRef<BottomSheetModal>(null);
 
   const behavior = Platform.OS === "ios" ? "padding" : undefined;
@@ -55,7 +56,7 @@ export default function SigninScreen() {
         </Typography>
       </ScrollView>
 
-      <ServerSettingsSheet
+      <ServerSettings
         ref={sheetRef}
         onSaved={() => sheetRef.current?.dismiss()}
       />
