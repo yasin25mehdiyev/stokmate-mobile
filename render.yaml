@@ -10,3 +10,8 @@ services:
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
+      # Server GC sizes a heap per core and can overshoot Render's free-tier
+      # 512MB limit, crashing the container with SIGSEGV (exit 139).
+      # Workstation GC is far lighter and fits comfortably.
+      - key: DOTNET_gcServer
+        value: "0"
