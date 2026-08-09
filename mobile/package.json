@@ -1,0 +1,85 @@
+{
+  "name": "mobile",
+  "main": "expo-router/entry",
+  "version": "1.0.0",
+  "dependencies": {
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@gorhom/bottom-sheet": "^5.2.14",
+    "@hookform/resolvers": "^5.7.1",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@tanstack/react-query": "^5.101.4",
+    "axios": "^1.19.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "expo": "~57.0.11",
+    "expo-blur": "~57.0.2",
+    "expo-build-properties": "~57.0.9",
+    "expo-constants": "~57.0.9",
+    "expo-dev-client": "~57.0.10",
+    "expo-font": "~57.0.1",
+    "expo-image": "~57.0.2",
+    "expo-linking": "~57.0.5",
+    "expo-localization": "~57.0.1",
+    "expo-router": "~57.0.11",
+    "expo-secure-store": "~57.0.1",
+    "expo-splash-screen": "~57.0.5",
+    "expo-status-bar": "~57.0.1",
+    "expo-system-ui": "~57.0.2",
+    "i18next": "^26.3.6",
+    "lucide-react-native": "^1.30.0",
+    "nativewind": "^4.2.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-hook-form": "^7.84.0",
+    "react-i18next": "^17.0.11",
+    "react-native": "0.86.2",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "15.15.4",
+    "react-native-svg-transformer": "^1.5.3",
+    "react-native-toast-message": "^2.4.0",
+    "react-native-web": "~0.21.0",
+    "react-native-worklets": "0.10.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^3.4.19",
+    "zod": "^3.25.76",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@types/react": "~19.2.2",
+    "commitizen": "^4.3.2",
+    "cz-git": "^1.13.1",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "~57.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "orval": "^8.23.0",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "prestart": "node scripts/ensure-env.mjs",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "expo lint",
+    "lint:fix": "expo lint --fix",
+    "generate:api": "orval --config orval.config.ts",
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "private": true
+}

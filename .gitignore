@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# --- mobile (React Native / Expo) ---
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/.env
+mobile/.env.*.local
+mobile/*.log
+
+# --- server (.NET) ---
+server/**/bin/
+server/**/obj/
+server/*.user

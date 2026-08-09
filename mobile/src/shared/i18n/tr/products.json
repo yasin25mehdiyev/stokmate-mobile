@@ -1,0 +1,61 @@
+{
+  "page": { "title": "Ürünler" },
+  "stats": {
+    "total": "Toplam",
+    "lowStock": "Kritik stok",
+    "outOfStock": "Tükendi"
+  },
+  "search": { "placeholder": "Ürün adı veya SKU ile ara..." },
+  "filter": {
+    "title": "Filtrele",
+    "allCategories": "Tüm kategoriler",
+    "clear": "Filtreleri temizle"
+  },
+  "list": {
+    "empty": "Ürün bulunamadı.",
+    "error": "Ürünler yüklenirken bir hata oluştu.",
+    "retry": "Yeniden dene",
+    "resultsCount": "{{total}} üründen {{count}} tanesi gösteriliyor",
+    "outOfStock": "Stok tükendi",
+    "lowStock": "Kritik stok"
+  },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "discontinued": "Üretimi durduruldu"
+  },
+  "unit": {
+    "piece": "Adet",
+    "kg": "Kg",
+    "liter": "Lt",
+    "box": "Paket"
+  },
+  "detail": {
+    "title": "Ürün Detayı",
+    "sku": "SKU",
+    "barcode": "Barkod",
+    "category": "Kategori",
+    "brand": "Marka",
+    "price": "Fiyat",
+    "stock": "Stok",
+    "minStock": "Minimum stok",
+    "updatedAt": "Son güncelleme",
+    "description": "Açıklama",
+    "noDescription": "Açıklama eklenmemiş.",
+    "updateStock": "Stok güncelle"
+  },
+  "stockUpdate": {
+    "title": "Stok Güncelle",
+    "currentStock": "Mevcut stok",
+    "newStock": "Yeni stok",
+    "reasonHint": "Sayımı yaptıktan sonra yeni miktarı girin.",
+    "save": "Stoğu kaydet",
+    "success": "\"{{name}}\" için stok {{stock}} olarak güncellendi.",
+    "validation": {
+      "required": "Stok miktarı zorunludur",
+      "negative": "Stok negatif olamaz"
+    },
+    "increment": "Artır",
+    "decrement": "Azalt"
+  }
+}

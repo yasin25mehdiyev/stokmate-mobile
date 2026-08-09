@@ -1,0 +1,27 @@
+{
+  "name": "StokMate",
+  "actions": {
+    "retry": "Yeniden dene",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "logout": "Çıkış yap"
+  },
+  "state": {
+    "loading": "Yükleniyor...",
+    "error": "Bir şeyler ters gitti.",
+    "empty": "Sonuç bulunamadı."
+  },
+  "language": {
+    "title": "Dil"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "description": "Aradığınız sayfa taşınmış, yeniden adlandırılmış ya da hiç var olmamış olabilir.",
+    "action": "Ürünlere dön"
+  },
+  "errorBoundary": {
+    "title": "Bir şeyler ters gitti",
+    "description": "Beklenmeyen bir hata oluştu. Yeniden deneyin; sorun devam ederse destek ile iletişime geçin.",
+    "action": "Yeniden dene"
+  }
+}

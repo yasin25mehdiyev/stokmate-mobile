@@ -1,0 +1,61 @@
+{
+  "page": { "title": "Products" },
+  "stats": {
+    "total": "Total",
+    "lowStock": "Low stock",
+    "outOfStock": "Out of stock"
+  },
+  "search": { "placeholder": "Search by product name or SKU..." },
+  "filter": {
+    "title": "Filter",
+    "allCategories": "All categories",
+    "clear": "Clear filters"
+  },
+  "list": {
+    "empty": "No products found.",
+    "error": "Something went wrong while loading products.",
+    "retry": "Retry",
+    "resultsCount": "Showing {{count}} of {{total}} products",
+    "outOfStock": "Out of stock",
+    "lowStock": "Low stock"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "discontinued": "Discontinued"
+  },
+  "unit": {
+    "piece": "Piece",
+    "kg": "Kilogram",
+    "liter": "Liter",
+    "box": "Box"
+  },
+  "detail": {
+    "title": "Product Details",
+    "sku": "SKU",
+    "barcode": "Barcode",
+    "category": "Category",
+    "brand": "Brand",
+    "price": "Price",
+    "stock": "Stock",
+    "minStock": "Minimum stock",
+    "updatedAt": "Last updated",
+    "description": "Description",
+    "noDescription": "No description added.",
+    "updateStock": "Update stock"
+  },
+  "stockUpdate": {
+    "title": "Update Stock",
+    "currentStock": "Current stock",
+    "newStock": "New stock",
+    "reasonHint": "Enter the new quantity after counting.",
+    "save": "Save stock",
+    "success": "Stock for \"{{name}}\" updated to {{stock}}.",
+    "validation": {
+      "required": "Stock quantity is required",
+      "negative": "Stock cannot be negative"
+    },
+    "increment": "Increase",
+    "decrement": "Decrease"
+  }
+}

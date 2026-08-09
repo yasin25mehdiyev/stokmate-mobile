@@ -1,0 +1,19 @@
+const ACCESS_TOKEN_KEY = "accessToken";
+
+const HTTP_STATUS = {
+  UNAUTHORIZED: 401,
+} as const;
+
+const PRODUCTS_PAGE_SIZE = 20;
+
+const MIN_LOADING_DURATION_MS = 500;
+
+const STALE_TIME_MS = 5 * 60 * 1000;
+
+export {
+  ACCESS_TOKEN_KEY,
+  HTTP_STATUS,
+  PRODUCTS_PAGE_SIZE,
+  MIN_LOADING_DURATION_MS,
+  STALE_TIME_MS,
+};

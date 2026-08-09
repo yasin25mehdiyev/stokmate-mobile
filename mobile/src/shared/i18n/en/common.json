@@ -1,0 +1,27 @@
+{
+  "name": "StokMate",
+  "actions": {
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "logout": "Log out"
+  },
+  "state": {
+    "loading": "Loading...",
+    "error": "Something went wrong.",
+    "empty": "No results found."
+  },
+  "language": {
+    "title": "Language"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for may have moved, been renamed, or never existed.",
+    "action": "Back to products"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Try again; if the problem continues, contact support.",
+    "action": "Try again"
+  }
+}
