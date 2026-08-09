@@ -24,7 +24,7 @@ Deploy konfigürasyonu repoda: [`server/Dockerfile`](server/Dockerfile) ve
 **gerek yoktur** — hem `npm start` ile geliştirme hem de dağıtılan APK bu adresi
 kullanır.
 
-> ⚠️ **İlk istekte gecikme olabilir.** Ücretsiz Render instance'ı 15 dakika
+> **İlk istekte gecikme olabilir.** Ücretsiz Render instance'ı 15 dakika
 > hareketsizlikten sonra uykuya geçer; uyandırma ~30-50 saniye sürebilir. İlk
 > giriş denemesi biraz uzun sürerse normaldir, sayfayı kapatıp tekrar denemeye
 > gerek yoktur.
