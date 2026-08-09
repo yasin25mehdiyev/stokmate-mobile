@@ -1,11 +1,7 @@
 import axios from "axios";
-import { getApiBaseUrl, onApiBaseUrlChange } from "./base-url";
+import { env } from "@/shared/config/env";
 
 export const axiosInstance = axios.create({
-  baseURL: getApiBaseUrl(),
+  baseURL: env.apiBaseUrl,
   withCredentials: true,
-});
-
-onApiBaseUrlChange((url) => {
-  axiosInstance.defaults.baseURL = url;
 });

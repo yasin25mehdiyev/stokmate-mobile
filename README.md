@@ -1,6 +1,6 @@
 # StokMate
 
-📱 **[APK'yı indir](https://expo.dev/artifacts/eas/R-7ell4Wve1eRyshrJhEwOsvm5giZZ2DYnaY4tjAI90.apk)** — kurulum ve test adımları için aşağıdaki [APK ile Test](#apk-ile-test-eas-preview-build) bölümüne bakın. (EAS build artifact linkleri belirli bir süre sonra sona erer; link çalışmazsa haber verin, yeni build alınır.)
+📱 **[APK'yı indir](https://expo.dev/artifacts/eas/zVa-p2YYyGUwu7LdmPzMuTt7yjC-032-IWJ7_XIV2jg.apk)** — kurulum notları için aşağıdaki [APK ile Test](#apk-ile-test) bölümüne bakın. (EAS build artifact linkleri belirli bir süre sonra sona erer; link çalışmazsa haber verin, yeni build alınır.)
 
 Stok yönetimi case study'si. Repo iki bağımsız projeden oluşur:
 
@@ -12,16 +12,30 @@ stokmate-mobile/
 
 İkisi de ayrı ayrı çalıştırılır ve HTTP üzerinden haberleşir.
 
-## Hızlı Başlangıç
+## API: Barındırılan Adres
 
-**1. API** (`server/`, port `5080`):
+API, Render'ın ücretsiz katmanında barındırılıyor ve mobil uygulama varsayılan
+olarak buraya bağlanır:
 
-```bash
-cd server
-dotnet run --project src/StokMate.Api
-```
+**https://stokmate-api.onrender.com** (Swagger: `/swagger/index.html`)
 
-**2. Mobil uygulama** (`mobile/`):
+Deploy konfigürasyonu repoda: [`server/Dockerfile`](server/Dockerfile) ve
+[`render.yaml`](render.yaml). Serverin kendi makinenizde ayrıca çalıştırılmasına
+**gerek yoktur** — hem `npm start` ile geliştirme hem de dağıtılan APK bu adresi
+kullanır.
+
+> ⚠️ **İlk istekte gecikme olabilir.** Ücretsiz Render instance'ı 15 dakika
+> hareketsizlikten sonra uykuya geçer; uyandırma ~30-50 saniye sürebilir. İlk
+> giriş denemesi biraz uzun sürerse normaldir, sayfayı kapatıp tekrar denemeye
+> gerek yoktur.
+
+Kendi yerel API'nize (`server/`, `dotnet run --project src/StokMate.Api`, port
+`5080`) karşı geliştirme yapmak isterseniz, `mobile/.env` içindeki
+`EXPO_PUBLIC_API_BASE_URL`'i kendi adresinizle değiştirin — detaylar için
+[`mobile/README.md`](mobile/README.md); endpoint referansı için
+[`server/API.md`](server/API.md).
+
+## Mobil Uygulamayı Çalıştırma
 
 ```bash
 cd mobile
@@ -29,26 +43,17 @@ npm install
 npm start
 ```
 
-Uygulamanın API'yi bulabilmesi için `mobile/.env` içinde `EXPO_PUBLIC_API_BASE_URL`
-tanımlı olmalı — bu dosya `npm start` ilk çalıştığında `.env.example`'dan otomatik
-oluşturulur. Detaylar için [`mobile/README.md`](mobile/README.md) dosyasına bakın;
-endpoint referansı için [`server/API.md`](server/API.md).
+`.env` dosyası ilk çalıştırmada otomatik oluşturulur ve varsayılan olarak
+barındırılan API'ye işaret eder — elle bir ayar yapmanız gerekmez.
 
-## APK ile Test (EAS Preview Build)
+## APK ile Test
 
-Paylaşılan `.apk` dosyası (veya EAS build linki) derleme sırasında sabit bir API
-adresi içermez; uygulama açıldığında varsayılan olarak `http://localhost:5080`
-adresine bağlanmayı dener. Fiziksel bir telefonda "localhost" telefonun kendisi
-demek olduğundan, API'yi kendi bilgisayarınızda ayağa kaldırmanız tek başına
-yeterli değildir. APK'yı test etmek için:
-
-1. **API'yi kendi makinenizde çalıştırın** (`server/`, port `5080` — yukarıdaki
-   "Hızlı Başlangıç" adımı).
-2. **Telefon ile bilgisayarın aynı Wi-Fi/LAN ağında** olduğundan emin olun.
-3. Uygulamayı açın, giriş ekranındaki **"Server Settings"** düğmesine dokunun ve
-   bilgisayarınızın LAN IP adresini girin (örn. `http://192.168.1.34:5080`) —
-   bu ekran tam olarak bu senaryo için var
-   (`mobile/src/features/auth/server-settings`).
+Paylaşılan `.apk` dosyası derleme zamanında barındırılan API adresiyle
+build edildiği için **hiçbir ek kuruluma gerek yoktur**: server'ı çalıştırmanıza,
+aynı Wi-Fi ağında olmanıza veya uygulama içinde bir adres girmenize gerek yok.
+APK'yı indirip kurduğunuz gibi doğrudan giriş yapabilirsiniz (test hesabı için
+[`server/API.md`](server/API.md) dosyasına bakın). Yukarıdaki "ilk istekte
+gecikme" notunu unutmayın.
 
 ## Auth Akışı: Access Token + HttpOnly Refresh Cookie
 

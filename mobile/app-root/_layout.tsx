@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import "@/shared/i18n/config";
 import "@/shared/styles/global.css";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -26,8 +26,6 @@ import {
   scheduleProactiveRefresh,
 } from "@/app/axios/proactive-refresh";
 import { clearAccessTokenExpiry } from "@/shared/lib";
-import { getSavedApiBaseUrl } from "@/shared/lib/api-base-url-storage";
-import { setApiBaseUrl } from "@/shared/api/base-url";
 import { useAuthStore } from "@/shared/store";
 import { Screen } from "@/shared/ui/custom/screen";
 import { EmptyState } from "@/shared/ui/custom/empty-state";
@@ -70,30 +68,14 @@ export default function RootLayout() {
   const isHydrated = useAuthStore((state) => state.isHydrated);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const initialize = useAuthStore((state) => state.initialize);
-  const [isApiUrlHydrated, setIsApiUrlHydrated] = useState(false);
 
   useEffect(() => {
     void initialize();
   }, [initialize]);
 
-  useEffect(() => {
-    const hydrateApiBaseUrl = async () => {
-      try {
-        const saved = await getSavedApiBaseUrl();
-        if (saved) setApiBaseUrl(saved);
-      } catch {
-        // No saved override — keep the auto-detected default.
-      } finally {
-        setIsApiUrlHydrated(true);
-      }
-    };
-
-    void hydrateApiBaseUrl();
-  }, []);
-
   useAuthSideEffects(isAuthenticated, isHydrated);
 
-  const ready = fontsLoaded && isHydrated && isApiUrlHydrated;
+  const ready = fontsLoaded && isHydrated;
 
   const onLayoutRootView = useCallback(async () => {
     if (ready) {

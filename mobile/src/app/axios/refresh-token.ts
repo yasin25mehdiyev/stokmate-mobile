@@ -1,15 +1,11 @@
 import axios from "axios";
-import { getApiBaseUrl, onApiBaseUrlChange } from "@/shared/api/base-url";
+import { env } from "@/shared/config/env";
 import { ACCESS_TOKEN_KEY } from "@/shared/config/constants";
 import { saveAccessTokenExpiry, tokenStorage } from "@/shared/lib";
 
 export const REFRESH_TOKEN_URL = "/auth/refresh";
 
-const refreshClient = axios.create({ baseURL: getApiBaseUrl(), withCredentials: true });
-
-onApiBaseUrlChange((url) => {
-  refreshClient.defaults.baseURL = url;
-});
+const refreshClient = axios.create({ baseURL: env.apiBaseUrl, withCredentials: true });
 
 let refreshPromise: Promise<void> | null = null;
 

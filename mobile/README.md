@@ -18,28 +18,22 @@ mobile/
 
 ## Hızlı Başlangıç
 
-**1. API'yi ayağa kaldırın** (`server/`, port `5080`):
-
-```bash
-cd server
-dotnet run --project src/StokMate.Api
-```
-
-**2. Bağımlılıkları kurun:**
+**1. Bağımlılıkları kurun:**
 
 ```bash
 cd mobile
 npm install
 ```
 
-**3. `.env` dosyası** — `npm start` ilk çalıştığında `.env.example`'dan otomatik
-oluşturulur (`scripts/ensure-env.mjs`, `prestart` hook'u). Elle bir şey yapmanıza
-gerek yok; `EXPO_PUBLIC_API_BASE_URL` boş bırakılırsa uygulama Metro'nun bağlı
-olduğu makinenin LAN IP'sini otomatik türetir (`shared/config/env.ts`) — fiziksel
-cihazla test ederken elle IP aramaya gerek kalmaz. Android emülatörü kullanıyorsanız
-`.env` içinde `EXPO_PUBLIC_API_BASE_URL=http://10.0.2.2:5080` set edin.
+**2. `.env` dosyası** — `npm start` ilk çalıştığında `.env.example`'dan otomatik
+oluşturulur (`scripts/ensure-env.mjs`, `prestart` hook'u). Varsayılan olarak
+`EXPO_PUBLIC_API_BASE_URL`, Render'da barındırılan API'ye (`stokmate-api.onrender.com`)
+işaret eder — elle bir şey yapmanıza gerek yok. Kendi yerel API'nize (`server/`,
+`dotnet run --project src/StokMate.Api`, port `5080`) karşı geliştirme yapmak
+isterseniz `.env` içinde `EXPO_PUBLIC_API_BASE_URL`'i kendi adresinizle değiştirin
+(fiziksel cihaz için makinenizin LAN IP'si, emülatör için `http://10.0.2.2:5080`).
 
-**4. Geliştirme build'i çalıştırın:**
+**3. Geliştirme build'i çalıştırın:**
 
 Bu proje **Expo Go ile çalışmaz** — SDK 57'nin dev-tooling'i Expo Go'nun mağaza
 sürümünden daha yeni olabiliyor. Bunun yerine kendi development client'ımızı kullanıyoruz:
@@ -58,7 +52,7 @@ npm start
 ile Metro'yu başlatıp uygulamayı açın; QR kodu okutmanıza gerek yok, dev client
 otomatik bağlanır.
 
-**5. Teslim edilecek APK için** (standalone, Metro'ya bağımlı değil):
+**4. Teslim edilecek APK için** (standalone, Metro'ya bağımlı değil):
 
 ```bash
 npx eas-cli build --profile preview --platform android
